@@ -1,0 +1,20 @@
+[0m[INFO] [1772714917.645351119]: init grid_map[0m
+[32mGet intrinsic[0m
+
+387.229 0 321.046
+0 387.229 243.45
+0 0 1
+
+hit: 0.619039
+miss: -0.619039
+min log: -1.99243
+max: 2.19722
+thresh log: 1.38629
+[33m[WARN] [1772714919.729896390, 2696.807000000]: [Traj server]: ready.[0m
+[33m[WARN] [1772714919.738807430, 2696.816000000]: Waiting for trigger from [n3ctrl] from RC[0m
+[0m[INFO] [1772714917.665169238]: register ODOMETRY[0m
+[0m[INFO] [1772714917.667776797]: grid_map init complete[0m
+[0m[INFO] [1772714917.703027546]: Wait for 1 second.[0m
+[0m[INFO] [1772714919.861895802, 2696.900000000]: [FSM]: state: INIT[0m
+ego-planner no odom.
+ego-planner wait for goal or trigger.
