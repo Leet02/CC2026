@@ -1,0 +1,7 @@
+<launch>
+  <node name="rtk_publisher" pkg="rtk_publisher" type="rtk_publisher" output="screen">
+    <param name="port" value="/dev/ttyTHS1"/>
+    <param name="baud" value="115200"/>
+    <param name="frame_id" value="gps"/>
+  </node>
+</launch>

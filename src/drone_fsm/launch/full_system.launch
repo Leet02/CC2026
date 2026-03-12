@@ -1,0 +1,9 @@
+<launch>
+    <node pkg="fastlio_mavros_bridge" name="fastlio_bridge" type="fastlio_bridge" output="screen" />  <!-- 融合odom -->
+    <include file="$(find fast_lio)/launch/mapping_mid360.launch" />  <!-- SLAM -->
+    <include file="$(find px4ctrl)/launch/run_ctrl.launch">  <!-- px4ctrl底层替换ego_bridge -->
+        <arg name="odom_topic" value="/mavros/local_position/odom" />
+    </include>
+    <include file="$(find ego_planner)/launch/run_in_sim.launch" />  <!-- ego规划 -->
+    <node pkg="drone_fsm" name="drone_fsm_node" type="drone_fsm_node" output="screen" />  <!-- 高层状态机 -->
+</launch>

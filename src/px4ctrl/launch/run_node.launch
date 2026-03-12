@@ -1,0 +1,14 @@
+<launch>
+    <arg name="odom_topic" default="/mavros/local_position/odom" />  <!-- 融合后的odom -->
+    <node pkg="px4ctrl" type="px4ctrl_node" name="px4ctrl" output="screen">
+        <!-- <remap from="~odom" to="/vicon_imu_ekf_odom" /> -->  <!-- 注释原 -->
+        <remap from="~odom" to="/mavros/local_position/odom" />  <!-- 用EKF2融合odom -->
+        <remap from="~cmd" to="/drone_0_planning/pos_cmd" />  <!-- ego输出（原/position_cmd） -->
+        <remap from="~imu" to="/mavros/imu/data" />  <!-- IMU -->
+        <remap from="~state" to="/mavros/state" />  <!-- 状态 -->
+        <remap from="~rc" to="/mavros/rc/in" />  <!-- RC -->
+        <remap from="~setpoint_raw/attitude" to="/mavros/setpoint_raw/attitude" />  <!-- 输出到PX4 -->
+        <rosparam command="load" file="$(find px4ctrl)/config/ctrl_param_fpv.yaml" />  <!-- 加载yaml -->
+    </node>
+</launch>
+
